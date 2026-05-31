@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"github.com/tantrungse/go-ecommerce-backend-api/internal/routers"
+)
 
 func main() {
-	fmt.Println("Starting...")
+	r := routers.NewRouter()
+
+	if err := r.Run(); err != nil {
+		log.Fatalf("failed to run server: %v", err)
+	}
 }
